@@ -6,18 +6,10 @@ struct aluno{
   int ru;
 };
 
-
 typedef struct no *arvore;
-
 
 // prototipos das funçoes
 
-int inserir(arvore *raiz, struct aluno);
+arvore buscar(arvore *raiz,struct aluno al);
 
-int buscar(arvore *raiz, int ru);
 
-void visualizar_ordem(arvore *raiz);
-
-void visualizar_preordem(arvore *raiz);
-
-void visualizar_posordem(arvore *raiz);
