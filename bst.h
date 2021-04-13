@@ -10,6 +10,12 @@ typedef struct no *arvore;
 
 // prototipos das funçoes
 
-arvore buscar(arvore *raiz,struct aluno al);
+arvore* criar_arvore(void);
 
+void libera_arvore(arvore* raiz);
 
+int inserir(arvore *raiz, struct aluno al);
+
+int buscar(arvore *raiz, int ru);
+
+void Em_ordem(arvore *raiz);
