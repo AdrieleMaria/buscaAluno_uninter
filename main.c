@@ -62,7 +62,7 @@ int main(void) {
         printf("digite o ru do aluno: ");   
         scanf("%d", &ru);
         
-        printf("%-10s %-20s %s\n", "Nome", "email", "RU");
+        printf("%-10s %-20s\n", "Nome", "email");
         buscar(raiz, ru);
         break;
       case 4:
@@ -78,9 +78,7 @@ int main(void) {
         printf("numero incorreto!");
         break;
     }
-  }while(opcao != 6);
-
-  
+  }while(opcao != 6);  
 
   return 0;
 }

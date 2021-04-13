@@ -88,24 +88,30 @@ int buscar(arvore *raiz, int ru){
   
   struct no* aux = *raiz;
 
-  if(ru < aux->dados.ru){
+  if(ru!= aux->dados.ru){
+    printf("\nRU nao encontrado");
+  }else if(ru < aux->dados.ru){
     buscar(&aux->esquerda, ru);
+    printf("esquerda");
   }else{
     if(ru > aux->dados.ru){
       buscar(&aux->direita, ru);
-    }else{
+      printf("direita");
+    }else{      
       if(ru == aux->dados.ru){
-        printf("%-10s %-20s %d",(*raiz)->dados.nome,(*raiz)->dados.email,(*raiz)->dados.ru);
-      }
+        printf("%-10s %-20s",(*raiz)->dados.nome,(*raiz)->dados.email);
+      }      
     }
+    
   }
+  
   return 0;
 }
 
 
 void Em_ordem(arvore *raiz){ 
-    if(raiz == NULL){
-      printf("\nvazia\n\n");// imprime         
+    if(*raiz == NULL){
+      printf("\narvore vazia\n\n");// imprime         
     }
     if(*raiz != NULL){
       Em_ordem(&((*raiz)->esquerda));

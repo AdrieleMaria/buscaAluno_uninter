@@ -6,5 +6,4 @@ __Trabalho da disciplina de estrutura de dados em linguagem C__
 * Árvore de busca binária (BST)
 * structs
 * ponteiros
-* manipulação de arquivo .txt
 * entre outros
