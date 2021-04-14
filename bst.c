@@ -3,34 +3,39 @@
 #include "bst.h"
 
 struct no{
-  struct aluno dados;
+  struct aluno dados; // dados que serão armazenados 
 
-  struct no *esquerda;
-  struct no *direita;
+  struct no *esquerda; //ponteiro para filho a esquerda
+  struct no *direita; // ponteiro para filho a direita
 };
 
+// função criar arvore
 arvore* criar_arvore(void){
   printf("\nArvore Criada!");
+  // criar a raiz e aloca espaço na memória para ela
   arvore* raiz = (arvore*)malloc(sizeof(arvore));
 
+  // se deu certo, árvore criada
   if(raiz!=NULL)
+    // raiz recebe nulo
     *raiz = NULL;
+  // retorna a raiz
   return raiz;
-  printf("arvore criada!");
 }
 
+// função libera no
 void libera_NO(struct no* aux){
-  if(aux == NULL)
+  if(aux == NULL) // no aux é nulo?
     return;
-  libera_NO(aux->esquerda);
-  libera_NO(aux->direita);
-  free(aux);
-  aux = NULL;
+  libera_NO(aux->esquerda); // percorrer recursivamente o no da esquerda
+  libera_NO(aux->direita); // percorrer recursivamente o no da direita
+  free(aux); // na volta da recursão, libera no aux
+  aux = NULL; // colocar Null para evitar erro de verificação posterior
 }
 
 void libera_arvore(arvore* raiz){
   printf("liberou!");
-  if(raiz == NULL)
+  if(raiz == NULL) // raiz é nula?
     return;
   libera_NO(*raiz);// libera cada no
   free(raiz);// libera a raiz
@@ -38,20 +43,22 @@ void libera_arvore(arvore* raiz){
 
 int inserir(arvore *raiz, struct aluno al){
   //printf("entrou no inserir!");
-  if(raiz == NULL)
+  if(raiz == NULL) // raiz existe?
     return 0;
-  struct no* novo;
-  novo = (struct no*) malloc(sizeof(struct no));
+  
+  struct no* novo; // criar no novo
+  novo = (struct no*) malloc(sizeof(struct no)); // alocar espaço na menmória para novo
 
-  if(novo == NULL)
+  if(novo == NULL) // novo existe?
     return 0;
 
+  //copia os dados que eu quero inserir para o no novo
   novo->dados = al;
-  novo->direita = NULL;
-  novo->esquerda = NULL;
+  novo->direita = NULL; // o próximo a direita será nulo
+  novo->esquerda = NULL; // o próximo a esquerda será nulo
 
-  if(*raiz == NULL)
-    *raiz = novo;
+  if(*raiz == NULL) // raiz vazia?
+    *raiz = novo; // insere novo
   else{
     struct no* atual = *raiz;
     struct no* antes = NULL;
