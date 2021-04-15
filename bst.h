@@ -6,11 +6,10 @@ struct aluno{
   int ru;
 };
 
-typedef struct no *arvore;
+typedef struct no *arvore; // o ponteiro árvore
 
-// prototipos das funçoes
-
-arvore* criar_arvore(void);
+// protótipos das funçoes
+arvore* criar_arvore(void); 
 
 void libera_arvore(arvore* raiz);
 
